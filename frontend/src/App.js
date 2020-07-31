@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import HomePage from "./pages/home";
-import ProductsPage from "./pages/products";
+import ProductPage from "./pages/product";
 
 import Header from "./components/Header";
 import SideMenu from "./components/SideMenu";
@@ -23,7 +23,7 @@ function App() {
             <div className="content">
               <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route exact path="/products/:id" component={ProductsPage} />
+                <Route exact path="/products/:id" component={ProductPage} />
               </Switch>
             </div>
           </main>

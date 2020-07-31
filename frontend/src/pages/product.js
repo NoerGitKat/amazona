@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
-import Product from "./../components/Product";
+import Product from "../components/Product";
+import ProductAction from "./../components/ProductAction";
 
-const ProductsPage = ({ match }) => {
-  console.log(match);
+import "./product.css";
+
+const ProductPage = ({ match }) => {
   const products = [
     {
       id: 1,
@@ -66,8 +70,10 @@ const ProductsPage = ({ match }) => {
   });
 
   return (
-    <>
-      <Link to="/">Back to results</Link>
+    <div id="product-page">
+      <Link to="/" className="back-button">
+        <FontAwesomeIcon icon={faArrowAltCircleLeft} /> Back to results
+      </Link>
       <Product
         id={product.id}
         name={product.name}
@@ -77,8 +83,9 @@ const ProductsPage = ({ match }) => {
         rating={product.rating}
         numReviews={product.numReviews}
       />
-    </>
+      <ProductAction price={product.price} status={"In Stock"} />
+    </div>
   );
 };
 
-export default ProductsPage;
+export default ProductPage;
