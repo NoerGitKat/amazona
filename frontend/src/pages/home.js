@@ -23,7 +23,7 @@ const HomePage = () => {
       {productState.loading ? (
         "Loading..."
       ) : productState.error ? (
-        "Something went wrong!"
+        <p>{productState.error}</p>
       ) : (
         <ProductList products={productState.products} />
       )}

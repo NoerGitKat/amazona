@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Product from "../components/Product";
-import ProductDetails from "./../components/ProductDetails";
+import ProductOrder from "./../components/ProductOrder";
 
 // Import action
 import { getDetailsProduct } from "../redux/actions/product-actions";
@@ -27,15 +27,19 @@ const ProductPage = ({ match }) => {
         <FontAwesomeIcon icon={faArrowAltCircleLeft} /> Back to results
       </Link>
       <Product
-        id={singleProduct.id || "?"}
-        name={singleProduct.name || "?"}
-        image={singleProduct.image || "?"}
-        brand={singleProduct.brand || "?"}
-        price={singleProduct.price || "?"}
-        rating={singleProduct.rating || "?"}
-        numReviews={singleProduct.numReviews || "?"}
+        id={singleProduct.id || "N/A"}
+        name={singleProduct.name || "N/A"}
+        image={singleProduct.image || "N/A"}
+        brand={singleProduct.brand || "N/A"}
+        price={singleProduct.price || "N/A"}
+        rating={singleProduct.rating || "N/A"}
+        numReviews={singleProduct.numReviews || "N/A"}
       />
-      <ProductDetails price={singleProduct.price || "?"} status={"In Stock"} />
+      <ProductOrder
+        price={singleProduct.price || "N/A"}
+        inStock={singleProduct.inStock}
+        params={match.params}
+      />
     </div>
   );
 };
