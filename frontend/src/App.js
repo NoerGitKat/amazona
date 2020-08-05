@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
+// Pages
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
 
+// Components
 import Header from "./components/Header";
 import SideMenu from "./components/SideMenu";
 import Footer from "./components/Footer";
@@ -27,7 +29,7 @@ function App() {
               </Switch>
             </div>
           </main>
-          <Footer text="All right reserved." />
+          <Footer text="All rights reserved." />
         </div>
       </Router>
     </div>
