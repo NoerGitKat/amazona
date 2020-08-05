@@ -1,73 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Product from "../components/Product";
-import ProductAction from "./../components/ProductAction";
+import ProductDetails from "./../components/ProductDetails";
+
+// Import action
+import { getDetailsProduct } from "../redux/actions/product-actions";
 
 import "./product.css";
 
 const ProductPage = ({ match }) => {
-  const products = [
-    {
-      id: 1,
-      name: "T-Shirt",
-      brand: "Nike",
-      image: "/images/d1.jpg",
-      rating: 4.5,
-      price: "$60",
-      numReviews: 10,
-    },
-    {
-      id: 2,
-      name: "T-Shirt",
-      brand: "Nike",
-      image: "/images/d1.jpg",
-      rating: 4.5,
-      price: "$60",
-      numReviews: 10,
-    },
-    {
-      id: 3,
-      name: "T-Shirt",
-      brand: "Nike",
-      image: "/images/d1.jpg",
-      rating: 4.5,
-      price: "$60",
-      numReviews: 10,
-    },
-    {
-      id: 4,
-      name: "T-Shirt",
-      brand: "Nike",
-      image: "/images/d1.jpg",
-      rating: 4.5,
-      price: "$60",
-      numReviews: 10,
-    },
-    {
-      id: 5,
-      name: "T-Shirt",
-      brand: "Nike",
-      image: "/images/d1.jpg",
-      rating: 4.5,
-      price: "$60",
-      numReviews: 10,
-    },
-    {
-      id: 6,
-      name: "T-Shirt",
-      brand: "Nike",
-      image: "/images/d1.jpg",
-      rating: 4.5,
-      price: "$60",
-      numReviews: 10,
-    },
-  ];
-  const product = products.find((product) => {
-    return product.id === Number(match.params.id);
-  });
+  const productState = useSelector((state) => state.productReducer);
+  const { singleProduct } = productState;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDetailsProduct(match.params.id));
+  }, []);
 
   return (
     <div id="product-page">
@@ -75,15 +27,15 @@ const ProductPage = ({ match }) => {
         <FontAwesomeIcon icon={faArrowAltCircleLeft} /> Back to results
       </Link>
       <Product
-        id={product.id}
-        name={product.name}
-        image={product.image}
-        brand={product.brand}
-        price={product.price}
-        rating={product.rating}
-        numReviews={product.numReviews}
+        id={singleProduct.id || "?"}
+        name={singleProduct.name || "?"}
+        image={singleProduct.image || "?"}
+        brand={singleProduct.brand || "?"}
+        price={singleProduct.price || "?"}
+        rating={singleProduct.rating || "?"}
+        numReviews={singleProduct.numReviews || "?"}
       />
-      <ProductAction price={product.price} status={"In Stock"} />
+      <ProductDetails price={singleProduct.price || "?"} status={"In Stock"} />
     </div>
   );
 };

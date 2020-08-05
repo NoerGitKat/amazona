@@ -1,8 +1,8 @@
 import React from "react";
 
-const ProductAction = ({ price, status }) => {
+const ProductDetails = ({ price, status }) => {
   return (
-    <div className="details-action">
+    <div className="product-details">
       <ul>
         <li>Price: {price}</li>
         <li>Status: {status}</li>
@@ -24,4 +24,4 @@ const ProductAction = ({ price, status }) => {
   );
 };
 
-export default ProductAction;
+export default ProductDetails;
