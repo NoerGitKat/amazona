@@ -19,7 +19,7 @@ const ProductPage = ({ match }) => {
 
   useEffect(() => {
     dispatch(getDetailsProduct(match.params.id));
-  }, []);
+  }, [dispatch, match.params.id]);
 
   return (
     <div id="product-page">

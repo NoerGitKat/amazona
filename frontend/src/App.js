@@ -6,6 +6,7 @@ import "./App.css";
 // Pages
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
+import CartPage from "./pages/cart";
 
 // Components
 import Header from "./components/Header";
@@ -24,8 +25,9 @@ function App() {
           <main className="main">
             <div className="content">
               <Switch>
-                <Route exact path="/" component={HomePage} />
                 <Route exact path="/products/:id" component={ProductPage} />
+                <Route exact path="/cart/:productId?" component={CartPage} />
+                <Route exact path="/" component={HomePage} />
               </Switch>
             </div>
           </main>

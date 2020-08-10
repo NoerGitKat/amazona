@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SideMenu = ({ setIsOpen, isOpen }) => {
   return (
@@ -8,12 +9,12 @@ const SideMenu = ({ setIsOpen, isOpen }) => {
         x
       </button>
       <ul>
-        <li>
-          <a href="index.html">Pants</a>
+        <li onClick={() => setIsOpen(false)}>
+          <Link to="/">Pants</Link>
         </li>
 
-        <li>
-          <a href="index.html">Shirts</a>
+        <li onClick={() => setIsOpen(false)}>
+          <Link to="/">Shirts</Link>
         </li>
       </ul>
     </aside>

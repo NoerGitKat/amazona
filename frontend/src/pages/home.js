@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     // Fetch products and update Redux store
     dispatch(listProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div id="home-page">
