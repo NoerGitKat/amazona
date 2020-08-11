@@ -10,7 +10,10 @@ const rootReducer = combineReducers({
   cartReducer,
 });
 
-const initialState = {};
+// Get initial cart state from localStorage
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+const initialState = { cartReducer: { cartItems } };
 
 // Enhances Redux capability: add Chrome tool so browser can visually represent state changes
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
