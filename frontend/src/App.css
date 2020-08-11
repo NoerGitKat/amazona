@@ -21,7 +21,7 @@ body {
     "main"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 1rem 1fr 5rem;
   height: 100%;
 }
 
@@ -158,4 +158,19 @@ a:hover {
   position: absolute;
   right: 0.5rem;
   top: 1.5rem;
+}
+
+button {
+  background-color: #f0c040;
+  margin-top: 2rem;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  border: 0.1rem #808080 solid;
+  transition: all 0.4s ease;
+}
+
+button:hover {
+  border: 0.1rem #404040 solid;
 }

@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from "./../constants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "./../constants";
 
 const INITIAL_CART_STATE = { cartItems: [] };
 
@@ -20,6 +20,13 @@ const cartReducer = (state = INITIAL_CART_STATE, action) => {
         // Add the new product to cart
         return { ...state, cartItems: [...state.cartItems, newProduct] };
       }
+    case CART_REMOVE_ITEM:
+      // Filter out product from cartItems by checking productId
+      const filteredCartItems = state.cartItems.filter(
+        (item) => item.productId !== action.payload
+      );
+      console.log("filtered", filteredCartItems);
+      return { ...state, cartItems: filteredCartItems };
     default:
       return state;
   }

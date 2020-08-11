@@ -22,7 +22,7 @@ const ProductOrder = ({ price, inStock, params }) => {
   ));
 
   return (
-    <div className="product-details">
+    <div className="product-cta">
       <ul>
         <li>Price: {price}</li>
         {inStock > 0 ? (

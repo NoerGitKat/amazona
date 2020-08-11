@@ -17,7 +17,7 @@ const Product = ({ id, name, image, brand, price, rating, numReviews }) => {
           <Link to={`/products/${id}`}>{name}</Link>
         </div>
         <div className="product-brand">{brand}</div>
-        <div className="product-price">{price}</div>
+        <div className="product-price">${price}</div>
         <div className="product-rating">
           {rating} Stars ({numReviews} reviews)
         </div>

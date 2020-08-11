@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from "./../constants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "./../constants";
 
 const addToCart = (productId, quantity) => async (dispatch) => {
   try {
@@ -26,4 +26,13 @@ const addToCart = (productId, quantity) => async (dispatch) => {
   }
 };
 
-export { addToCart };
+const deleteFromCart = (productId) => async (dispatch) => {
+  try {
+    // 1. Dispatch action with productId
+    dispatch({ type: CART_REMOVE_ITEM, payload: productId });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { addToCart, deleteFromCart };
