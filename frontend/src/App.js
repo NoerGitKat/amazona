@@ -12,6 +12,7 @@ import "./App.css";
 import HomePage from "./pages/home";
 import ProductPage from "./pages/product";
 import CartPage from "./pages/cart";
+import LoginPage from "./pages/login";
 
 // Components
 import Header from "./components/Header";
@@ -32,6 +33,7 @@ function App() {
               <Switch>
                 <Route exact path="/products/:id" component={ProductPage} />
                 <Route exact path="/cart/:productId?" component={CartPage} />
+                <Route exact path="/login" component={LoginPage} />
                 <Route exact path="/" component={HomePage} />
                 <Redirect to="/" />
               </Switch>

@@ -1,0 +1,22 @@
+#login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#login-page .form-container {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  padding: 2rem;
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  list-style-type: none;
+}
+
+#login-page .form-container li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}

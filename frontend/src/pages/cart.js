@@ -36,7 +36,7 @@ const CartPage = ({ match, location }) => {
   };
 
   const toCheckout = () => {
-    push("/signin?redirect=shipping");
+    push("/login?redirect=shipping");
   };
 
   useEffect(() => {

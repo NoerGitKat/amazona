@@ -3,6 +3,7 @@ import express from "express";
 const usersRouter = express.Router();
 
 // Validators
+import validateLogin from "./../middlewares/validation/validateLogin";
 
 // Controllers
 import { createAdmin, loginUser } from "./../controllers/users-controllers";

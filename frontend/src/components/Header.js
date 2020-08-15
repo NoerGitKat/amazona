@@ -10,7 +10,7 @@ const Header = ({ setIsOpen }) => {
       </div>
       <div className="header-links">
         <Link to="/cart">Cart</Link>
-        <Link to="/signin">Sign In</Link>
+        <Link to="/login">Sign In</Link>
       </div>
     </header>
   );
