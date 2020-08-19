@@ -63,4 +63,6 @@ const loginUser = async (req, res) => {
   return res.status(200).json(token);
 };
 
-export { createAdmin, loginUser };
+const signupUser = (req, res) => {};
+
+export { createAdmin, loginUser, signupUser };

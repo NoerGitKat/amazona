@@ -4,10 +4,12 @@ import thunk from "redux-thunk";
 // Import all reducers
 import productReducer from "./reducers/product-reducer";
 import cartReducer from "./reducers/cart-reducer";
+import usersReducer from "./reducers/users-reducer";
 
 const rootReducer = combineReducers({
   productReducer,
   cartReducer,
+  usersReducer,
 });
 
 // Get initial cart state from localStorage

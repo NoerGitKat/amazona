@@ -6,3 +6,7 @@ export const PRODUCT_DETAILS_SUCCESS = "PRODUCT_DETAILS_SUCCESS";
 
 export const CART_ADD_ITEM = "CART_ADD_ITEM";
 export const CART_REMOVE_ITEM = "CART_REMOVE_ITEM";
+
+export const AUTH_REQUEST = "AUTH_REQUEST";
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_ERROR = "AUTH_ERROR";
