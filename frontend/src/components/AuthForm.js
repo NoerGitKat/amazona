@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 
 // Import actions
 import { login, signup } from "./../redux/actions/users-actions";
@@ -8,11 +8,21 @@ import { login, signup } from "./../redux/actions/users-actions";
 const AuthForm = ({ isLogin }) => {
   const INITIAL_FORM_DATA = isLogin
     ? { email: "", password: "" }
-    : { name: "", email: "", password: "", confirmPassword: "" };
+    : { name: "", email: "", password: "", password2: "" };
 
+  const history = useHistory();
+
+  const userState = useSelector((state) => state.usersReducer);
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+
+  useEffect(() => {
+    // If user authenticated, redirect to homepage
+    if (userState.token) {
+      history.push("/");
+    }
+  }, [userState.token, history]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +32,7 @@ const AuthForm = ({ isLogin }) => {
       dispatch(login(formData.email, formData.password));
     } else {
       // 1. Check if passwords match
-      if (formData.password !== formData.confirmPassword) {
+      if (formData.password !== formData.password2) {
         alert("Passwords don't match!");
       } else {
         // 2. Dispatch action to update state
@@ -91,7 +101,7 @@ const AuthForm = ({ isLogin }) => {
               name="password2"
               id="password2"
               placeholder="Repeat Password"
-              value={formData.confirmPassword}
+              value={formData.password2}
               onChange={inputHandler}
               required
             />

@@ -6,6 +6,9 @@ import connectDB from "./util/connectDB";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Parse body for JSON
+app.use(express.json());
+
 // Routes
 import productRouter from "./routes/product-router";
 import usersRouter from "./routes/users-router";

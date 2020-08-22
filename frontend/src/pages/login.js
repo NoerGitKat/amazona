@@ -10,10 +10,10 @@ const LoginPage = ({ history }) => {
 
   useEffect(() => {
     // If user is logged in, send them to homepage
-    if (userState.userData.name) {
+    if (userState.token.name) {
       history.push("/");
     }
-  }, [history, userState.userData.name]);
+  }, [history, userState.token.name]);
 
   return (
     <div id="login-page" className="auth-page">

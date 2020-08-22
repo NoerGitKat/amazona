@@ -40,8 +40,10 @@ const CartPage = ({ match, location }) => {
   };
 
   useEffect(() => {
-    // After mount update product in cart based on query params
-    dispatch(addToCart(productId, quantity));
+    // After mount update product in cart based on query params if exists
+    if (productId && quantity) {
+      dispatch(addToCart(productId, quantity));
+    }
   }, [dispatch, productId, quantity]);
 
   return (

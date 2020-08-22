@@ -13,7 +13,9 @@ const rootReducer = combineReducers({
 });
 
 // Get initial cart state from localStorage
-let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+console.log("cartItems", cartItems);
 
 const initialState = { cartReducer: { cartItems } };
 

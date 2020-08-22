@@ -25,7 +25,6 @@ const cartReducer = (state = INITIAL_CART_STATE, action) => {
       const filteredCartItems = state.cartItems.filter(
         (item) => item.productId !== action.payload
       );
-      console.log("filtered", filteredCartItems);
       return { ...state, cartItems: filteredCartItems };
     default:
       return state;

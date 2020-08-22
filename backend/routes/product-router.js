@@ -8,7 +8,14 @@ import {
   getSingleProduct,
 } from "./../controllers/product-controllers";
 
-productRouter.route("/").get(getProducts);
+// Validators
+import validateNewProduct from "./../middlewares/validation/validateNewProduct";
+
+// Middlewares
+import checkAuth from "./../middlewares/checkAuth";
+
+productRouter.route("/").get(getProducts).post(validateNewProduct, );
+
 productRouter.route("/:productId").get(getSingleProduct);
 
 export default productRouter;

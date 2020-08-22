@@ -1,3 +1,6 @@
+import { validationResult } from "express-validator";
+import Product from "./../models/Product";
+
 const products = [
   {
     id: 1,
@@ -61,11 +64,13 @@ const products = [
   },
 ];
 
-export const getProducts = (req, res) => {
-  res.status(200).send(products);
+export const getProducts = async (req, res) => {
+  const allProducts = await Product.find({});
+
+  return res.status(200).send(allProducts);
 };
 
-export const getSingleProduct = (req, res) => {
+export const getSingleProduct = async (req, res) => {
   const { productId } = req.params;
 
   const singleProduct = products.find(
@@ -73,8 +78,48 @@ export const getSingleProduct = (req, res) => {
   );
 
   if (singleProduct) {
-    res.status(200).send(singleProduct);
+    return res.status(200).send(singleProduct);
   } else {
-    res.status(404).send({ msg: "Product not found!" });
+    return res.status(404).send({ msg: "Product not found!" });
   }
+};
+
+export const addNewProduct = async (req, res) => {
+  const {
+    name,
+    price,
+    image,
+    brand,
+    category,
+    inStock,
+    description,
+    rating,
+    numReviews,
+  } = req.body;
+
+  try {
+    // 1. Validate request body
+    const errors = validationResult(req);
+    if (errors.length > 0) {
+      return res.status(422).json({ errors });
+    }
+
+    // 2. Create a new product
+    const newProduct = new Product({
+      name,
+      price,
+      image,
+      brand,
+      category,
+      inStock,
+      description,
+      rating,
+      numReviews,
+    });
+
+    // 3. Save new product in DB
+    newProduct.save();
+
+    // 4. Respond with new product
+  } catch (error) {}
 };
