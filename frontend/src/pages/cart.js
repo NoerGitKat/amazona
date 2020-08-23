@@ -10,7 +10,7 @@ import "./cart.css";
 const CartPage = ({ match, location }) => {
   const { productId } = match.params;
   const { push } = useHistory();
-  const { cartItems } = useSelector((state) => state.cartReducer);
+  const { cartItems } = useSelector((state) => state.cartState);
   const quantity = location.search ? Number(location.search.split("=")[1]) : 1;
 
   const dispatch = useDispatch();

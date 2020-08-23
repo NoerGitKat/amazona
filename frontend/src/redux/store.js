@@ -7,17 +7,16 @@ import cartReducer from "./reducers/cart-reducer";
 import usersReducer from "./reducers/users-reducer";
 
 const rootReducer = combineReducers({
-  productReducer,
-  cartReducer,
-  usersReducer,
+  productState: productReducer,
+  cartState: cartReducer,
+  authState: usersReducer,
 });
 
 // Get initial cart state from localStorage
 const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+const token = JSON.parse(localStorage.getItem("token")) || "";
 
-console.log("cartItems", cartItems);
-
-const initialState = { cartReducer: { cartItems } };
+const initialState = { cartState: { cartItems }, authState: token };
 
 // Enhances Redux capability: add Chrome tool so browser can visually represent state changes
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

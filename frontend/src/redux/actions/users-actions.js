@@ -25,13 +25,13 @@ const login = (email, password) => async (dispatch) => {
     const response = await fetch("/api/users/login", request);
     const token = await response.json();
 
-    // 2. check DB if user exists
+    // 2. Throw error if no user found in DB
     if (!token) {
       throw new Error("The user doesn't exist!");
     }
 
     // 3. Set token in localStorage
-    localStorage.setItem("token", token);
+    localStorage.setItem("token", JSON.stringify(token));
 
     // 4. Update state
     const successAction = {
@@ -75,7 +75,7 @@ const signup = (name, email, password) => async (dispatch) => {
     const token = await response.json();
 
     // 3. Set token in localStorage
-    localStorage.setItem("token", token);
+    localStorage.setItem("token", JSON.stringify(token));
 
     // 4. Update Redux store with success
     const successAction = {

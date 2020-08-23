@@ -8,7 +8,7 @@ import ProductList from "./../components/ProductList";
 
 const HomePage = () => {
   // Get products from Redux store
-  const productState = useSelector((state) => state.productReducer);
+  const productState = useSelector((state) => state.productState);
   // Allows us to make Redux aware of action execution
   const dispatch = useDispatch();
 

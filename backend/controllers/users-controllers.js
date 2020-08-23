@@ -76,7 +76,6 @@ const signupUser = async (req, res) => {
   try {
     // 2. Check if email already exists
     const emailExists = await User.findOne({ email });
-    console.log("emailExists", emailExists);
 
     if (emailExists) {
       return res.status(403).json({ msg: "Email in use already!" });

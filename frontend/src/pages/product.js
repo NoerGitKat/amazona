@@ -13,7 +13,7 @@ import { getDetailsProduct } from "../redux/actions/product-actions";
 import "./product.css";
 
 const ProductPage = ({ match }) => {
-  const productState = useSelector((state) => state.productReducer);
+  const productState = useSelector((state) => state.productState);
   const { singleProduct } = productState;
   const dispatch = useDispatch();
 

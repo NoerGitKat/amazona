@@ -12,17 +12,17 @@ const AuthForm = ({ isLogin }) => {
 
   const history = useHistory();
 
-  const userState = useSelector((state) => state.usersReducer);
+  const authState = useSelector((state) => state.authState);
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
 
   useEffect(() => {
     // If user authenticated, redirect to homepage
-    if (userState.token) {
+    if (authState) {
       history.push("/");
     }
-  }, [userState.token, history]);
+  }, [authState, history]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
